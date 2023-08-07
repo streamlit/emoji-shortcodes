@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-@st.cache(ttl=60*60*12, allow_output_mutation=True)
+@st.cache_data(ttl=60*60*12)
 def fetch_emojis():
     resp = requests.get(
         'https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json')
