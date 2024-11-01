@@ -22,7 +22,7 @@ Shortcodes are a way to enter emojis using pure ASCII. So you can type this `:sm
 :smile:.
 
 (Keep in mind you can also enter emojis directly as Unicode in your Python strings too — you don't
-*have to* use a shortcode)
+*have to* use a shortcode.)
 '''
 
 st.info(
