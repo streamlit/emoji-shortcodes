@@ -28,7 +28,7 @@ Shortcodes are a way to enter emojis using pure ASCII. So you can type this `:sm
 st.info(
     """
         In addition to the standard emojis listed below, add a little Streamlit
-        flair with `:streamlit:` -> :streamlit:, for Streamlit version 1.40.0
+        flair with `:streamlit:` -> :streamlit: for Streamlit version 1.40.0
         and later.
     """
 )
