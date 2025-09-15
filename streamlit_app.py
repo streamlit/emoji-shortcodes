@@ -6,14 +6,15 @@ import pandas as pd
 @st.cache_data(ttl=60 * 60 * 12)
 def fetch_emojis():
     resp = requests.get(
-        "https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json"
+        "https://raw.githubusercontent.com/muan/emojilib/refs/tags/v2.4.0/emojis.json"
     )
     json = resp.json()
-    codes, emojis = zip(*json.items())
+    codes, _ = zip(*json.items())
+
     return pd.DataFrame(
         {
-            "Emojis": emojis,
-            "Shortcodes": [f"`:{code}:`" for code in codes],
+            "Emojis": [f":{code}:" for code in ["streamlit", *codes]],
+            "Shortcodes": [f"`:{code}:`" for code in ["streamlit", *codes]],
         }
     )
 
@@ -26,15 +27,16 @@ Below are all the emoji shortcodes supported by Streamlit.
 Shortcodes are a way to enter emojis using pure ASCII. So you can type this `:smile:` to show this
 :smile:.
 
-(Keep in mind you can also enter emojis directly as Unicode in your Python strings too — you don't
-*have to* use a shortcode.)
+
+We recommend to use emojis directly as Unicode characters in your Python strings instead of shortcodes.
+You can find and copy-paste Unicode emojis from [here](https://getemoji.com).
 """
 
 st.info(
     """
-        In addition to the standard emojis listed below, add a little Streamlit
-        flair with `:streamlit:` -> :streamlit: for Streamlit version 1.40.0
-        and later.
+The list of supported shortcodes was updated in Streamlit 1.46.0.
+This also broke a few shortcodes which are no longer supported. More
+information can be found in [this Github issue](https://github.com/streamlit/streamlit/issues/11845).
     """
 )
 
